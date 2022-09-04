@@ -8,11 +8,13 @@ import './App.css'
 const App = () => {
     const [robots, setRobots] = useState([])
     const [searchField, setSearchField] = useState('')
+
     useEffect(()=>{
+        console.log('ran')
         fetch('https://jsonplaceholder.typicode.com/users')
         .then(response=> response.json())
         .then(users => setRobots(users))
-    })
+    }, [])
 
     const onSearchChange = (event) => {
         setSearchField(event.target.value)
